@@ -1,5 +1,7 @@
 {
   "nav": {
+    "manage": "Manage",
+    "configure": "Configure",
     "dashboard": "Dashboard",
     "schedule": "Schedule",
     "leaderboard": "Leaderboard",
@@ -8,38 +10,8 @@
     "disciplines": "Disciplines",
     "referees": "Referees",
     "settings": "Settings",
-    "inbox": "Inbox"
-  },
-  "common": {
-    "save": "Save",
-    "cancel": "Cancel",
-    "delete": "Delete",
-    "edit": "Edit",
-    "create": "Create",
-    "confirm": "Confirm",
-    "loading": "Loading...",
-    "error": "Error"
-  },
-  "landing": {
-    "headline": "...",
-    "cta": "..."
-  },
-  "settings": {
-    "language": {
-      "label": "Language",
-      "description": "User interface language"
-    }
-  },
-  "tournament": {
-    "create": {
-      "title": "Create tournament",
-      "name": "Name",
-      "date": "Date",
-      "description": "Description"
-    },
-    "switcher": {
-      "placeholder": "Select tournament...",
-      "empty": "No tournament found"
-    }
+    "account": "Account",
+    "notifications": "Notifications",
+    "logOut": "Log out"
   }
 }
