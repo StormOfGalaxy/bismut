@@ -11,6 +11,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
 import Link from "next/link"
+import { useTranslations } from "next-intl"
 
 export function NavSecondary({
   items,
@@ -21,10 +22,12 @@ export function NavSecondary({
     url: string
     icon: React.ReactNode
   }[]
-} & React.ComponentPropsWithoutRef<typeof SidebarGroup>) {
+  } & React.ComponentPropsWithoutRef<typeof SidebarGroup>) {
+  const t = useTranslations("nav")
+
   return (
     <SidebarGroup {...props}>
-      <SidebarGroupLabel>Configure</SidebarGroupLabel>
+      <SidebarGroupLabel>{t("configure")}</SidebarGroupLabel>
       <SidebarGroupContent>
         <SidebarMenu>
           {items.map((item) => (
@@ -33,7 +36,7 @@ export function NavSecondary({
                 <Link href={item.url}>
                   {item.icon}
                   <span>{item.title}</span>
-                </ Link>
+                </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
           ))}

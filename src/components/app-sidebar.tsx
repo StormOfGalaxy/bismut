@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/sidebar"
 import { LayoutDashboardIcon, ListIcon, ChartBarIcon, UsersIcon, Settings2Icon, CalendarIcon, TrophyIcon, ShieldIcon, GalleryVerticalEndIcon, AudioWaveformIcon, CommandIcon } from "lucide-react"
 import { TeamSwitcher } from "./team-switcher"
+import { useTranslations } from "next-intl"
 
 const data = {
   user: {
@@ -21,101 +22,49 @@ const data = {
     avatar: "/avatars/shadcn.jpg",
   },
   teams: [
-      {
-        name: "Acme Inc",
-        logo: GalleryVerticalEndIcon,
-        plan: "Enterprise",
-      },
-      {
-        name: "Acme Corp.",
-        logo: AudioWaveformIcon,
-        plan: "Startup",
-      },
-      {
-        name: "Evil Corp.",
-        logo: CommandIcon,
-        plan: "Free",
-      },
-    ],
-  navMain: [
     {
-      title: "Dashboard",
-      url: "#",
-      icon: (
-        <LayoutDashboardIcon
-        />
-      ),
+      name: "Acme Inc",
+      logo: GalleryVerticalEndIcon,
+      plan: "Enterprise",
     },
     {
-      title: "Schedule",
-      url: "#",
-      icon: (
-        <CalendarIcon
-        />
-      ),
+      name: "Acme Corp.",
+      logo: AudioWaveformIcon,
+      plan: "Startup",
     },
     {
-      title: "Leaderboard",
-      url: "#",
-      icon: (
-        <TrophyIcon
-        />
-      ),
-    },
-    {
-      title: "Statistics",
-      url: "#",
-      icon: (
-        <ChartBarIcon
-        />
-      ),
-    }
-  ],
-  navSecondary: [
-    {
-      title: "Teams",
-      url: "#",
-      icon: (
-        <UsersIcon
-        />
-      ),
-    },
-    {
-      title: "Disciplines",
-      url: "#",
-      icon: (
-        <ListIcon
-        />
-      ),
-    },
-    {
-      title: "Referees",
-      url: "#",
-      icon: (
-        <ShieldIcon
-        />
-      ),
-    },
-    {
-      title: "Settings",
-      url: "#",
-      icon: (
-        <Settings2Icon
-        />
-      ),
+      name: "Evil Corp.",
+      logo: CommandIcon,
+      plan: "Free",
     },
   ],
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const t = useTranslations("nav")
+
+  const navMain = [
+    { title: t("dashboard"), url: "#", icon: <LayoutDashboardIcon /> },
+    { title: t("schedule"), url: "#", icon: <CalendarIcon /> },
+    { title: t("leaderboard"), url: "#", icon: <TrophyIcon /> },
+    { title: t("statistics"), url: "#", icon: <ChartBarIcon /> },
+  ]
+
+  const navSecondary = [
+    { title: t("teams"), url: "#", icon: <UsersIcon /> },
+    { title: t("disciplines"), url: "#", icon: <ListIcon /> },
+    { title: t("referees"), url: "#", icon: <ShieldIcon /> },
+    { title: t("settings"), url: "#", icon: <Settings2Icon /> },
+  ]
+
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
-        <NavSecondary items={data.navSecondary} className="mt-auto" />
+        <NavMain items={navMain} />
+        <NavSecondary items={navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />

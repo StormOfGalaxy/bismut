@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/sidebar"
 import * as React from "react"
 import Link from "next/link"
+import { useTranslations } from "next-intl"
 
 export function NavMain({
   items,
@@ -19,10 +20,12 @@ export function NavMain({
     url: string
     icon?: React.ReactNode
   }[]
-}) {
+  }) {
+  const t = useTranslations("nav")
+
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>Manage</SidebarGroupLabel>
+      <SidebarGroupLabel>{t("manage")}</SidebarGroupLabel>
       <SidebarGroupContent>
         <SidebarMenu>
           {items.map((item) => (
@@ -31,7 +34,7 @@ export function NavMain({
                 <Link href={item.url}>
                   {item.icon}
                   <span>{item.title}</span>
-                </ Link>
+                </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
           ))}
