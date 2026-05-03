@@ -9,13 +9,10 @@ import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
-  SidebarHeader,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
+  SidebarHeader
 } from "@/components/ui/sidebar"
-import { LayoutDashboardIcon, ListIcon, ChartBarIcon, UsersIcon, Settings2Icon, CalendarIcon, TrophyIcon, ShieldIcon } from "lucide-react"
-import Link from "next/link"
+import { LayoutDashboardIcon, ListIcon, ChartBarIcon, UsersIcon, Settings2Icon, CalendarIcon, TrophyIcon, ShieldIcon, GalleryVerticalEndIcon, AudioWaveformIcon, CommandIcon } from "lucide-react"
+import { TeamSwitcher } from "./team-switcher"
 
 const data = {
   user: {
@@ -23,6 +20,23 @@ const data = {
     email: "m@example.com",
     avatar: "/avatars/shadcn.jpg",
   },
+  teams: [
+      {
+        name: "Acme Inc",
+        logo: GalleryVerticalEndIcon,
+        plan: "Enterprise",
+      },
+      {
+        name: "Acme Corp.",
+        logo: AudioWaveformIcon,
+        plan: "Startup",
+      },
+      {
+        name: "Evil Corp.",
+        logo: CommandIcon,
+        plan: "Free",
+      },
+    ],
   navMain: [
     {
       title: "Dashboard",
@@ -95,21 +109,9 @@ const data = {
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar collapsible="offcanvas" {...props}>
+    <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton
-              asChild
-              className="data-[slot=sidebar-menu-button]:p-1.5!"
-            >
-              <Link href="#">
-                <TrophyIcon className="size-5!" />
-                <span className="text-base font-semibold">Bismut</span>
-              </Link>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        </SidebarMenu>
+        <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
