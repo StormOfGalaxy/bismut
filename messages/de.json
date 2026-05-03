@@ -1,0 +1,45 @@
+{
+  "nav": {
+    "dashboard": "Dashboard",
+    "schedule": "Spielplan",
+    "leaderboard": "Rangliste",
+    "statistics": "Statistiken",
+    "teams": "Teams",
+    "disciplines": "Disziplinen",
+    "referees": "Schiedsrichter",
+    "settings": "Einstellungen",
+    "inbox": "Posteingang"
+  },
+  "common": {
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "create": "Erstellen",
+    "confirm": "Bestätigen",
+    "loading": "Laden...",
+    "error": "Fehler"
+  },
+  "landing": {
+    "headline": "...",
+    "cta": "..."
+  },
+  "settings": {
+    "language": {
+      "label": "Sprache",
+      "description": "Sprache der Benutzeroberfläche"
+    }
+  },
+  "tournament": {
+    "create": {
+      "title": "Turnier erstellen",
+      "name": "Name",
+      "date": "Datum",
+      "description": "Beschreibung"
+    },
+    "switcher": {
+      "placeholder": "Turnier auswählen...",
+      "empty": "Kein Turnier gefunden"
+    }
+  }
+}
